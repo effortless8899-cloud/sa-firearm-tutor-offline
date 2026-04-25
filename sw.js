@@ -11,8 +11,8 @@ const CACHE = 'sa-firearm-tutor-react-v2';
 
 // This gets replaced by scripts/postbuild.mjs
 const BUILD_ASSETS = [
-  "./assets/index-DBl8LtAc.js",
-  "./assets/index-VWVCObga.css"
+  "./assets/index-VWVCObga.css",
+  "./assets/index-_yQG6pdj.js"
 ];
 
 const PRECACHE = [
