@@ -4,21 +4,25 @@
   Goals:
   - Precache critical OCR vendor assets (large)
   - Precache Vite build assets (hashed) via build-time injection
+  - Precache icons/manifest for iOS Home Screen
   - Navigation fallback to cached index.html
 */
 
-const CACHE = 'sa-firearm-tutor-react-v3';
+const CACHE = 'sa-firearm-tutor-react-v4';
 
 // This gets replaced by scripts/postbuild.mjs
 const BUILD_ASSETS = [
-  "./assets/index-VWVCObga.css",
-  "./assets/index-_yQG6pdj.js"
+  "./assets/index-C1ZhUllT.js",
+  "./assets/index-Cq-BTKQC.css"
 ];
 
 const PRECACHE = [
   './index.html',
   './manifest.webmanifest',
   './icon.svg',
+  './icons/apple-touch-icon.png',
+  './icons/icon-192.png',
+  './icons/icon-512.png',
 
   // OCR vendor assets
   './vendor/tesseract/tesseract.min.js',
@@ -62,7 +66,6 @@ self.addEventListener('fetch', (event) => {
   if (url.origin !== self.location.origin) return;
   if (req.method !== 'GET') return;
 
-  // Navigation → serve cached index.html
   if (req.mode === 'navigate') {
     event.respondWith(
       (async () => {
@@ -80,7 +83,6 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Cache-first for everything else.
   event.respondWith(
     (async () => {
       const cached = await caches.match(req);
