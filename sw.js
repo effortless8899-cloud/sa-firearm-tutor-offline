@@ -7,7 +7,7 @@
   - Navigation fallback to cached index.html
 */
 
-const CACHE = 'sa-firearm-tutor-react-v2';
+const CACHE = 'sa-firearm-tutor-react-v3';
 
 // This gets replaced by scripts/postbuild.mjs
 const BUILD_ASSETS = [
